@@ -14,7 +14,11 @@ app.get("/",(req,res)=>{
     })
 })
 
-
+app.get('/search/:code',(req,res)=>{
+Stocks.findOne({"code_name":req.params.code}).then(response=>{
+res.send(response);
+})
+})
 
 
 
