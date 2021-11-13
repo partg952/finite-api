@@ -22,11 +22,11 @@ res.send(response);
 })
 })
 
-app.get('/add-user',(req,res)=>{
-    const name = req.query.name;
-    const email = req.query.email;
-    const number = req.query.phone;
-    const amount = req.query.amount;
+app.post('/add-user',(req,res)=>{
+    const name = req.body.name;
+    const email = req.body.email;
+    const number = req.body.phone;
+    const amount = req.body.amount;
     const data = new Users({
         name:name,
         email:email,
@@ -45,21 +45,27 @@ app.get('/add-user',(req,res)=>{
 app.get('/users',(req,res)=>{
     Users.find().then(response=>{
         res.send(response)
-    }).catch(err=>{
+    }).catch(err=>{ 
         res.send("something went wrong!!"+err);
     })
 })
 
 app.get("/increase-count",(req,res)=>{
     Count.find().then(response=>{
-        Count.findOneAndUpdate({"count":response},{"count":parseInt(response)+1}).then(result=>{
+        Count.findOneAndReplace({"count":response},{"count":parseInt(response)+1}).then(result=>{
             res.send("updated");
+        }).catch(err=>{
+            res.send(err);
         })
+    }).catch(err=>{
+        res.send(err);
     })
 })
 app.get("/get-count",(req,res)=>{
     Count.find().then(count=>{
         res.send(count);
+    }).catch(err=>{
+        res.send(err)
     })
 })
 app.listen(PORT,()=>{
