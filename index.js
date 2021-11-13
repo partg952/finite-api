@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 9000
 const Stocks = require("./mongoose");
 const Users = require("./user");
 const cors = require("cors");
+const Count = require("./count");
 app.use(cors())
 app.use(express.json())
 
@@ -49,6 +50,18 @@ app.get('/users',(req,res)=>{
     })
 })
 
+app.get("/increase-count",(req,res)=>{
+    Count.find().then(response=>{
+        Count.findOneAndUpdate({"count":response},{"count":parseInt(response)+1}).then(result=>{
+            res.send("updated");
+        })
+    })
+})
+app.get("/get-count",(req,res)=>{
+    Count.find().then(count=>{
+        res.send(count);
+    })
+})
 app.listen(PORT,()=>{
     console.log(`listening at ${PORT}`)
     mongoose.connect(`mongodb+srv://parth:hello@cluster0.zbwa7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,{
