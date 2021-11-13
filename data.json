@@ -1,0 +1,75 @@
+[
+    {
+        "id":"1",
+        "name":"Meta Platforms",
+        "current_price":350,
+        "increase":"+13.15 (+4.01%)",
+        "code_name":"FB"
+        
+    },
+    {
+        "id":"2",
+        "name":"Nikola",
+        "current_price":13.98,
+        "increase":"+0.010 (0.072%)",
+        "code_name":"NKLA"
+        
+    },
+    {
+        "id":"3",
+        "name":"Nio Limited",
+        "current_price":42.67,
+        "increase":"+0.47 (1.11%)",
+        "code_name":"NIO"
+        
+    },
+
+    {
+        "id":"4",
+        "name":"Meta Platforms",
+        "current_price":1033.42,
+        "increase":"−30.09 (2.83%)",
+        "code_name":"TSLA"
+        
+    },
+    {
+        "id":"5",
+        "name":"Moderna",
+        "current_price":231.19,
+        "increase":"+5.37 (2.38%)",
+        "code_name":"MRNA"
+        
+    },
+    {
+        "id":"6",
+        "name":"Amazon.com Inc.",
+        "current_price":3525.15 ,
+        "increase":"+52.65 (1.52%)",
+        "code_name":"AMZN"
+        
+    },
+    {
+        "id":"7",
+        "name":"Apple Inc.",
+        "current_price":149.99,
+        "increase":"+13.15 (+4.01%)",
+        "code_name":"FB"
+        
+    },
+    {
+        "id":"8",
+        "name":"Nvidia",
+        "current_price":303.90,
+        "increase":"−2.66 (0.88%)",
+        "code_name":"NVDA"
+        
+    },
+    {
+        "id":"9",
+        "name":"Microsoft Corporation",
+        "current_price":336.72,
+        "increase":"+4.29 (1.29%)",
+        "code_name":"MSFT"
+        
+    }
+]
