@@ -11,6 +11,15 @@ app.use(cors())
 app.use(express.json())
 
 
+const transport = nodemailer.createTransport({
+    services:'gmail',
+    auth:{
+        user:"dankparth@gmail.com",
+        pass:'publicstaticvoidmain2311'
+    }
+});
+
+
 app.get("/",(req,res)=>{
     Stocks.find().then(result=>{
         res.send(result);
@@ -42,17 +51,10 @@ app.post('/add-user',(req,res)=>{
     })
 
 
-    const transport = nodemailer.createTransport({
-        services:'gmail',
-        auth:{
-            user:"dankparth@gmail.com",
-            pass:'publicstaticvoidmain2311'
-        }
-    });
-
+    
     const mailOptions = {
         from:'dankparth@gmail.com',
-        to:email,
+        to:email+"@gmail.com",
         subject:'Best Stock options',
         html:`<img src='https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png'/>
               <p>Tesla</p>
