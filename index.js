@@ -106,6 +106,78 @@ app.post('/add-user',(req,res)=>{
       <!-- Other Stocks are appended as child through the stocks data from stocks_data.js -->
     </div>
               </body>
+              <script>
+              const stocks_data = [
+                {
+                  name:'Tesla',
+                  code:'TSLA',
+                  returns:'743',
+                  image:'https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png',
+                  image_dimensions:'100px',
+                },
+                {
+                  name:'Apple',
+                  code:'AAPL',
+                  returns:'80',
+                  image:'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
+                  image_dimensions:'100px',
+              
+                },
+                {
+                  name:'Nvidia',
+                  code:'NVDA',
+                  returns:'122',
+                  image:'https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg',
+                  image_dimensions:'100px',
+                },
+                {
+                  name:'Moderna',
+                  code:'MRNA',
+                  returns:'434',
+                  image:'https://upload.wikimedia.org/wikipedia/commons/6/6a/Moderna_logo.svg',
+                  image_dimensions:'100px',
+                },
+                {
+                  name:'Nikola',
+                  code:'NKLA',
+                  returns:'55',
+                  image:'https://upload.wikimedia.org/wikipedia/commons/1/10/Nikola_logo.svg',
+                  image_dimensions:'100px',
+                },
+                {
+                  name:'Facebook',
+                  code:'FB',
+                  returns:'33',
+                  image:'https://upload.wikimedia.org/wikipedia/commons/7/7c/Facebook_New_Logo_%282015%29.svg',
+                  image_dimensions:'100px',
+                },
+                {
+                  name:'Amazon',
+                  code:'AMZ',
+                  returns:'76',
+                  image:'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
+                  image_dimensions:'100px',
+                },
+                {
+                  name:'Microsoft',
+                  code:'MSFT',
+                  returns:'41',
+                  image:'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
+                  image_dimensions:'100px',
+                },
+               
+              ]
+                let stocks_div = document.getElementById('famous-div');
+                stocks_data.forEach(items=>{
+                    let div = document.createElement("div");
+                    div.classList.add("stocks")
+                    div.innerHTML = '
+                    <img src=${items.image}/>
+                    <h3>${items.name}(${items.code})</h3>
+                    <p>${items.returns}</p>
+                    '
+                })              
+              </script>
               
         `
     };
