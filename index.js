@@ -12,10 +12,11 @@ app.use(express.json())
 
 
 const transport = nodemailer.createTransport({
-    services:'gmail',
+    service:'gmail',
+    port: 3003,
     auth:{
         user:"dankparth@gmail.com",
-        pass:'publicstaticvoidmain2311'
+        pass:'leokudionnxeouea'
     }
 });
 
@@ -50,7 +51,7 @@ app.post('/add-user',(req,res)=>{
         res.send("something went wrong!!"+err);
     })
 
-
+    console.log(email);
     
     const mailOptions = {
         from:'dankparth@gmail.com',
