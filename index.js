@@ -57,9 +57,56 @@ app.post('/add-user',(req,res)=>{
         from:'dankparth@gmail.com',
         to:email+"@gmail.com",
         subject:'Best Stock options',
-        html:`<img src='https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png'/>
-              <p>Tesla</p>
-              <p>hooray it's working!!</p>
+        html:`
+        <style>
+        div#famous-stocks div img{
+            height: 100px;
+            width: 100px;
+            }
+            div#famous-stocks div{
+              margin: 10px;
+              align-items: center;
+              text-align: center;
+              height: 180px;
+              width: 180px; 
+              box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+              padding: 10px;
+              background-color: orange;
+              border-radius: 6px;
+              transition: all 200ms ease;
+              cursor: pointer;
+              border: 1px solid transparent;
+            
+            }
+            div#famous-stocks div:hover{
+              transform: scale(1.08);
+              background-color: yellow;
+              border: 1px solid black;
+            }
+            div#famous-stocks{
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            }
+        </style>
+              <body>
+              <div id="famous-stocks">
+      <div class="stocks" onclick="gotopage('AMD')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/AMD_Logo.png" style="height: 30px; margin: 20px;" alt="">
+        <h3>Advanced Micro Devices(AMD)</h3>
+        <p>100% YTD Returns</p>
+      </div>
+      <div class="stocks" onclick="gotopage('NIO')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/93/Nio_2020_Logo.svg/1200px-Nio_2020_Logo.svg.png" style="height: 30px; margin: 20px;" alt="">
+        <h3>Nio Limited(NIO)</h3>
+        <p>1112% YTD Returns</p>
+      </div> 
+      <!-- Other Stocks are appended as child through the stocks data from stocks_data.js -->
+    </div>
+              </body>
+              
         `
     };
 
