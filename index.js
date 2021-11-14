@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 9000
 const Stocks = require("./mongoose");
 const Users = require("./user");
 const cors = require("cors");
+const nodemailer = require("nodemailer")
 const Count = require("./count");
 app.use(cors())
 app.use(express.json())
@@ -38,6 +39,31 @@ app.post('/add-user',(req,res)=>{
         res.send(response)
     }).catch(err=>{
         res.send("something went wrong!!"+err);
+    })
+
+
+    const transport = nodemailer.createTransport({
+        services:'gmail',
+        auth:{
+            user:"dankparth@gmail.com",
+            pass:'publicstaticvoidmain2311'
+        }
+    });
+
+    const mailOptions = {
+        from:'dankparth@gmail.com',
+        to:email,
+        subject:'Best Stock options',
+        html:`<img src='https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png'/>
+              <p>Tesla</p>
+              <p>hooray it's working!!</p>
+        `
+    };
+
+    transport.sendMail(mailOptions).then(res=>{
+        console.log(res)
+    }).catch(err=>{
+        console.log(err);
     })
 
 })
