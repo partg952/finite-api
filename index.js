@@ -127,14 +127,13 @@ app.get('/users',(req,res)=>{
 })
 
 app.get("/increase-count",(req,res)=>{
-    Count.find().then(response=>{
-        Count.findOneAndReplace({"count":response},{"count":parseInt(response)+1}).then(result=>{
-            res.send("updated");
-        }).catch(err=>{
-            res.send(err);
-        })
+    var data = new Count({
+        count:req.query['num']
+    })
+    data.save().then(response=>{
+        res.send(response)
     }).catch(err=>{
-        res.send(err);
+        res.send("something went wrong!!"+err);
     })
 })
 app.get("/get-count",(req,res)=>{
